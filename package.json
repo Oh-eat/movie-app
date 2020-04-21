@@ -9,9 +9,9 @@
   },
   "scripts": {
     "start": "node server/index.js",
-    "backend": "nodemon server/index.js",
-    "frontend": "npm run start --prefix client",
-    "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\""
+    "backend": "nodemon --watch server/ server/index.js",
+    "frontend": "yarn --cwd client start",
+    "dev": "concurrently \"yarn backend\" \"yarn frontend\""
   },
   "author": "John ahn",
   "license": "ISC",
