@@ -5,14 +5,12 @@ function MainImage({ movie }) {
   if (!movie) return null;
 
   return (
-    <a href="#">
+    <a href={`/movie/${movie.id}`}>
       <div
         style={{
-          position: "absolute",
-          left: "0",
-          top: "0",
+          position: "relative",
           width: "100%",
-          height: "500px",
+          height: "40vh",
           backgroundImage: `url(${IMAGE_BASE_URL}/original/${movie.backdrop_path})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
@@ -24,8 +22,8 @@ function MainImage({ movie }) {
           style={{
             color: "white",
             position: "absolute",
-            left: "1rem",
-            bottom: "1rem",
+            left: "2rem",
+            bottom: "2rem",
             width: "50%",
           }}
         >
