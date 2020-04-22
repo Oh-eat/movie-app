@@ -59,7 +59,7 @@ input.error {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   justify-content: space-between;
-  grid-gap: 0.5rem;
+  grid-gap: min(1vw, 1vh);
 }
 
 @media (max-width: 768px) {

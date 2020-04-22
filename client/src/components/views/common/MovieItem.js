@@ -1,6 +1,6 @@
 import React from "react";
-import { IMAGE_BASE_URL } from "../../../Config";
-import buildImageURL from "../../../../lib/buildImageURL";
+import { Link } from "react-router-dom";
+import buildImageURL from "../../../lib/buildImageURL";
 
 function MovieItem({ movie, delay = 0 }) {
   return (
@@ -9,17 +9,16 @@ function MovieItem({ movie, delay = 0 }) {
       key={movie.id}
       style={{ display: "block", animationDelay: `${delay * 0.1}s` }}
     >
-      <a href={`/movie/${movie.id}`}>
+      <Link to={`/movie/${movie.id}`}>
         <img
           style={{
-            //   display: "block",
             width: "100%",
-            height: "auto",
-            objectFit: "cover",
+            height: "100%",
           }}
           src={buildImageURL(movie.poster_path)}
+          alt={movie.title}
         />
-      </a>
+      </Link>
       {/* <h2 style={{ maxWidth: "100%", wordWrap: "break-word" }}>
           {movie.title}
         </h2> */}

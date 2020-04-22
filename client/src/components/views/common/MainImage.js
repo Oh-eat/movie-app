@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import buildImageURL from "../../../lib/buildImageURL";
 
-function MainImageContent({ movie, title }) {
+function MainImageContent({ movie, text }) {
   if (!movie) return null;
 
   return (
@@ -9,7 +10,7 @@ function MainImageContent({ movie, title }) {
       style={{
         position: "relative",
         width: "100%",
-        height: "max(40vw, 40vh)",
+        height: "max(30vw, 40vh)",
         backgroundImage: `url(${buildImageURL(
           movie.backdrop_path,
           "original"
@@ -20,17 +21,17 @@ function MainImageContent({ movie, title }) {
         textShadow: "0 0 10px black",
       }}
     >
-      <article
-        style={{
-          color: "white",
-          position: "absolute",
-          left: "0rem",
-          bottom: "0rem",
-          padding: "max(3vw, 3vh)",
-          width: "100%",
-        }}
-      >
-        {title && (
+      {text && (
+        <article
+          style={{
+            color: "white",
+            position: "absolute",
+            left: "0rem",
+            bottom: "0rem",
+            padding: "max(3vw, 3vh)",
+            width: "100%",
+          }}
+        >
           <h2
             style={{
               fontWeight: "bolder",
@@ -42,20 +43,22 @@ function MainImageContent({ movie, title }) {
           >
             {movie.title}
           </h2>
-        )}
-        {/* <p style={{ margin: "1rem 0 0 0" }}>{movie.overview}</p> */}
-      </article>
+          {/* <p style={{ margin: "0 0 0 0", fontSize: "max(1.5vw, 1.5vh)" }}>
+            {movie.overview}
+          </p> */}
+        </article>
+      )}
     </div>
   );
 }
 
-function MainImage({ movie, title, anchor }) {
+function MainImage({ movie, text, anchor }) {
   return anchor ? (
-    <a href={`/movie/${movie.id}`}>
-      <MainImageContent movie={movie} title={title} />
-    </a>
+    <Link to={`/movie/${movie.id}`}>
+      <MainImageContent movie={movie} text={text} />
+    </Link>
   ) : (
-    <MainImageContent movie={movie} title={title} />
+    <MainImageContent movie={movie} text={text} />
   );
 }
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback, useRef } from "react";
 import { API_URL, API_KEY } from "../../Config";
 import MainImage from "../common/MainImage";
-import MovieGrid from "./Sections/MovieGrid";
+import MovieGrid from "../common/MovieGrid";
 
 function LandingPage() {
   const [movies, setMovies] = useState(null);
@@ -77,7 +77,7 @@ function LandingPage() {
     <div style={{ width: "100%", margin: "0" }}>
       <MainImage
         movie={movies[Math.floor((Math.random() * 100) / 5)]}
-        title
+        text
         anchor
       />
       <div style={{ width: "85%", margin: "1rem auto" }}>
