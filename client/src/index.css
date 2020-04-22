@@ -21,6 +21,12 @@ body {
   background-color: #fff;
 }
 
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 .app {
   flex-direction: column;
   display: flex;

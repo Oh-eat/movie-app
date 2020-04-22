@@ -1,5 +1,6 @@
 import React from "react";
 import { IMAGE_BASE_URL } from "../../../Config";
+import buildImageURL from "../../../../lib/buildImageURL";
 
 function MovieItem({ movie, delay = 0 }) {
   return (
@@ -16,11 +17,7 @@ function MovieItem({ movie, delay = 0 }) {
             height: "auto",
             objectFit: "cover",
           }}
-          src={
-            movie.poster_path
-              ? `${IMAGE_BASE_URL}/w500/${movie.poster_path}`
-              : "https://dalk4zrp4jp3q.cloudfront.net/images/mac_YFVkNF/movie_placeholder_big_2x.png"
-          }
+          src={buildImageURL(movie.poster_path)}
         />
       </a>
       {/* <h2 style={{ maxWidth: "100%", wordWrap: "break-word" }}>
